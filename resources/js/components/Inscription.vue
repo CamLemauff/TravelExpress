@@ -4,6 +4,7 @@
 
         <div class="inscription-form">
             <h1>Inscription</h1>
+            
             <div class="field">
                 <label class="label">Nom</label>
                 <div class="control">

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Index from '../components/Index.vue'
 import  Inscription from '../components/Inscription.vue'
+import Connexion from '../components/Connexion.vue'
 
 Vue.use(Router)
 
@@ -17,5 +18,10 @@ export default new Router({
             name: 'inscription',
             component: Inscription
         },
+        {
+            path: '/connexion',
+            name: 'connexion',
+            component: Connexion
+        }
     ]
 })
