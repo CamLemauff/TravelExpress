@@ -1,40 +1,6 @@
 <template>
     <div class="index">
-        <nav class="navbar" role="navigation">
-            <div class="navbar-brand">
-                <a class="navbar-item" href="#">
-                    <v-icon class="icon-logo" name="car" size="3x"></v-icon>
-                    <div class="text-logo">TravelExpress</div>
-                </a>
-
-                <a 
-                    role="button"
-                    class="navbar-burger burger"
-                    aria-expanded="false"
-                    data-target="navbarBurger">
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                </a>
-            </div>
-
-            <div id="navbarBurger" class="navbar-menu">
-                <div class="navbar-end">
-                    <div class="navbar-item">
-                        <v-icon class="navbar-icon" name="search"></v-icon> Recherche
-                    </div>
-                    <div class="navbar-item">
-                        <v-icon class="navbar-icon" name="plus-circle"></v-icon> Proposer un trajet
-                    </div>
-                    <div class="navbar-item">
-                        <v-icon class="navbar-icon" name="shopping-cart"></v-icon> Panier
-                    </div>
-                    <div class="navbar-item">
-                        <v-icon class="navbar-icon" name="user"></v-icon> Profil
-                    </div>
-                </div>
-            </div>
-        </nav>
+        <navbar></navbar>
 
         <div class="index-title">
             <div class="title">Covoiturage : choisissez le trajet qui vous convient le mieux </div>
@@ -47,8 +13,10 @@
 </template>
 
 <script>
+import Navbar from './add-ons/Navbar'
 export default {
     name: "index",
+    components: {Navbar},
 }
 </script>
 
@@ -56,27 +24,6 @@ export default {
 @import '../variables.scss';
 
     .index {
-        .navbar {
-            .navbar-item {
-                color: #2096ba;
-
-                .icon-logo {
-                    width: 40px;
-                    height: 40px;
-                    margin-right: 5px;
-                }
-
-                .navbar-icon {
-                    width: 20px;
-                    height: 20px;
-                    margin-right: 5px;
-                }
-
-                .text-logo {
-                    font-weight: bold;
-                }
-            }
-        }
 
         .index-title {
             width: 100%;
