@@ -29,7 +29,9 @@
                     <v-icon class="navbar-icon" name="shopping-cart"></v-icon> Panier
                 </div>
                 <div class="navbar-item">
-                    <v-icon class="navbar-icon" name="user"></v-icon> Profil
+                    <router-link to="/profil">
+                        <v-icon class="navbar-icon" name="user"></v-icon> Profil
+                    </router-link>
                 </div>
             </div>
         </div>

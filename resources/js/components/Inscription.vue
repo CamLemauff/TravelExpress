@@ -8,25 +8,25 @@
             <div class="field">
                 <label class="label">Nom</label>
                 <div class="control">
-                    <input class="input" type="text" placeholder="Nom">
+                    <input v-model="newUser.name" class="input" type="text" placeholder="Nom">
                 </div>
             </div>
             <div class="field">
                 <label class="label">Prénom</label>
                 <div class="control">
-                    <input class="input" type="text" placeholder="Prénom">
+                    <input v-model="newUser.firstname" class="input" type="text" placeholder="Prénom">
                 </div>
             </div>
             <div class="field">
                 <label class="label">Nom d'usager</label>
                 <div class="control">
-                    <input class="input" type="text" placeholder="Nom d'usager">
+                    <input v-model="newUser.username" class="input" type="text" placeholder="Nom d'usager">
                 </div>
             </div>
             <div class="field">
                 <label class="label">Email</label>
                 <div class="control has-icons-left">
-                    <input class="input" type="email" placeholder="Email">
+                    <input v-model="newUser.email" class="input" type="email" placeholder="Email">
                     <span class="icon is-small is-left">
                         <v-icon name="envelope"></v-icon>
                     </span>
@@ -35,7 +35,12 @@
             <div class="field">
                 <label class="label">Mot de passe</label>
                 <div class="control">
-                    <input class="input" type="password" placeholder="Mot de passe">
+                    <input v-model="newUser.password" class="input" type="password" placeholder="Mot de passe">
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <button class="button is-link" @click="addNewUser()">Submit</button>
                 </div>
             </div>
         </div>
@@ -46,7 +51,28 @@
 import Navbar from './add-ons/Navbar'
 export default {
     name: "inscription",
+    data() {
+        return {
+            newUser: {},
+        }
+    },
     components: {Navbar},
+    methods: {
+        addNewUser() {
+            axios.post("api/client", {
+                name: this.newUser.name,
+                firstname: this.newUser.firstname,
+                username: this.newUser.username,
+                email: this.newUser.email,
+                password: this.newUser.password
+            }).then(function (response) {
+                document.location.reload(true);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        }
+    }
 }
 </script>
 
