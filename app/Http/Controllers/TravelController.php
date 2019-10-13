@@ -14,7 +14,7 @@ class TravelController extends Controller
      */
     public function index()
     {
-        //
+        return view('search');
     }
 
     /**
@@ -35,7 +35,8 @@ class TravelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $travels = Travel::create($request->all());
+        return response()->json($travels);
     }
 
     /**
@@ -46,7 +47,13 @@ class TravelController extends Controller
      */
     public function show(Travel $travel)
     {
-        //
+        $travel = Travel::orderBy('id', 'asc')->get();
+        return response()->json($travel);
+    }
+
+    public function getTravelId($id)
+    {
+        return Travel::findOrFail($id);
     }
 
     /**
@@ -80,6 +87,7 @@ class TravelController extends Controller
      */
     public function destroy(Travel $travel)
     {
-        //
+        $travels = Travel::find($travel);
+        $travels->delete();
     }
 }

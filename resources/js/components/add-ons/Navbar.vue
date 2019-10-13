@@ -20,10 +20,14 @@
         <div id="navbarBurger" class="navbar-menu">
             <div class="navbar-end">
                 <div class="navbar-item">
-                    <v-icon class="navbar-icon" name="search"></v-icon> Recherche
+                    <router-link to='/search'>
+                        <v-icon class="navbar-icon" name="search"></v-icon> Recherche
+                    </router-link>
                 </div>
                 <div class="navbar-item">
-                    <v-icon class="navbar-icon" name="plus-circle"></v-icon> Proposer un trajet
+                    <router-link to='/addtravel'>
+                        <v-icon class="navbar-icon" name="plus-circle"></v-icon> Proposer un trajet
+                    </router-link>
                 </div>
                 <div class="navbar-item">
                     <v-icon class="navbar-icon" name="shopping-cart"></v-icon> Panier

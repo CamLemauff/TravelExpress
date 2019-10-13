@@ -4,6 +4,8 @@ import Index from '../components/Index.vue'
 import  Inscription from '../components/Inscription.vue'
 import Connexion from '../components/Connexion.vue'
 import Profil from '../components/Profil.vue'
+import Search from '../components/Search.vue'
+import AddTravel from '../components/AddTravel.vue'
 
 Vue.use(Router)
 
@@ -29,5 +31,15 @@ export default new Router({
             name: 'profil',
             component: Profil
         },
+        {
+            path: '/search',
+            name:'search',
+            component: Search
+        },
+        {
+            path: '/addtravel',
+            name: 'addtravel',
+            component: AddTravel
+        }
     ]
 })

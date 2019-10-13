@@ -16,6 +16,17 @@ class CreateTravelsTable extends Migration
         Schema::create('travels', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
+            $table->string('start_hour');
+            $table->string('start_city');
+            $table->string('start_address');
+            $table->string('finish_hour');
+            $table->string('finish_city');
+            $table->string('finish_address');
+            $table->string('price');
+            $table->string('available_seats');
+            $table->string('preferences');
+            $table->string('driver');
+            $table->string('id_driver');
         });
     }
 
