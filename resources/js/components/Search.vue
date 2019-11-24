@@ -11,6 +11,9 @@
                     <p class="subtitle">
                     {{travel.start_address}} - {{travel.finish_address}}
                     </p>
+                    <router-link :to="{ name: 'detail', params: { travelId : travel.id } }">
+                        See more
+                    </router-link>
                 </div>
                 <footer class="card-footer">
                     <p class="card-footer-item">
@@ -49,7 +52,7 @@ export default {
             });
         }
     }
-    
+
 }
 </script>
 

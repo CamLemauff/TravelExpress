@@ -21,5 +21,5 @@ Route::post('client', 'ClientController@store');
 Route::get('client', 'ClientController@show');
 Route::get('client/{id}', 'ClientController@getClientId');
 
-Route::post('travel', 'TravelController@store');
-Route::get('travel', 'TravelController@show');
+Route::apiResource('travel', 'ApiTravelController');
+
