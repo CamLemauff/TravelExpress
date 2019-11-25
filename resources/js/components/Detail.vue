@@ -1,5 +1,6 @@
 <template>
     <div  class="detail">
+        <navbar></navbar>
         <div class="card">
             <div class="card-content">
                 <h2> Départ :  </h2>
@@ -108,6 +109,7 @@
         margin-bottom: 1.5rem;
         margin-left:1.5rem;
         margin-right:1.5rem;
+        margin-top:1.5rem;
         border-radius: 20px;
     }
 
