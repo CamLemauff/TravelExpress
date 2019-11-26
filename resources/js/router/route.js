@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Index from '../components/Index.vue'
-import  Inscription from '../components/Inscription.vue'
+import Inscription from '../components/Inscription.vue'
 import Connexion from '../components/Connexion.vue'
 import Profil from '../components/Profil.vue'
 import Search from '../components/Search.vue'
@@ -24,12 +24,13 @@ export default new Router({
         {
             path: '/connexion',
             name: 'connexion',
-            component: Connexion
+            component: Connexion,
         },
         {
             path: '/profil',
             name: 'profil',
-            component: Profil
+            component: Profil,
+            props: true,
         },
         {
             path: '/search',

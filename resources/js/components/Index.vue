@@ -30,8 +30,8 @@ export default {
             height: 450px;
             display: flex;
             flex-direction: column;
-            background-image: url('../assets/car_index.jpg');
-            background-size: 100% 450px;
+            background-image: url('../assets/cover_travel_express.png');
+            background-size: cover;
 
             .title {
                 width: 100%;

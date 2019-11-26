@@ -8,14 +8,20 @@
             <div class="field">
                 <label class="label">Nom d'usager</label>
                 <div class="control">
-                    <input class="input" type="text" placeholder="Nom d'usager">
+                    <input v-model="username" class="input" type="text" placeholder="Nom d'usager">
                 </div>
             </div>
 
             <div class="field">
                 <label class="label">Mot de passe</label>
                 <div class="control">
-                    <input class="input" type="password" placeholder="Mot de passe">
+                    <input v-model="password" class="input" type="password" placeholder="Mot de passe">
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <button type="submit" class="button is-link" @click="connexionClient">Submit</button>
                 </div>
             </div>
         </div>
@@ -26,7 +32,39 @@
 import Navbar from "./add-ons/Navbar"
 export default {
     name: "connexion",
-    components: {Navbar}
+    components: {Navbar},
+    data() {
+        return{
+            username: "",
+            password: "",
+            clients: [],
+            loggedClient: "",
+            error: false,
+        }
+    },
+    created() {
+        this.getClients();
+    },
+    methods: {
+        getClients() {
+            axios.get("/api/client").then(response => {
+                this.clients = response.data;
+            });
+        },
+        connexionClient() {
+            for (var i = 0; i<this.clients.length; i++) {
+                if(this.username === this.clients[i]['username'] && this.password === this.clients[i]['password']) {
+                    var response = this.clients[i];
+                    this.$router.push({ name: 'profil', params: { response }});
+                }
+                else {
+                    alert("Mauvais identifiant ou mot de passe !");
+                    location.reload();
+                }
+            }
+            
+        }
+    }
 }
 </script>
 

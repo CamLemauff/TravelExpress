@@ -5,6 +5,7 @@
         <div class="inscription-form">
             <h1>Inscription</h1>
             
+            <form autocomplete="off" @submit.prevent="register" method="post">
             <div class="field">
                 <label class="label">Nom</label>
                 <div class="control">
@@ -43,6 +44,7 @@
                     <button class="button is-link" @click="addNewUser()">Submit</button>
                 </div>
             </div>
+            </form>
         </div>
     </div>
 </template>
