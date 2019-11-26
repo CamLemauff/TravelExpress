@@ -6,6 +6,7 @@ import Connexion from '../components/Connexion.vue'
 import Profil from '../components/Profil.vue'
 import Search from '../components/Search.vue'
 import AddTravel from '../components/AddTravel.vue'
+import Detail from '../components/Detail.vue'
 
 Vue.use(Router)
 
@@ -35,12 +36,20 @@ export default new Router({
         {
             path: '/search',
             name:'search',
-            component: Search
+            component: Search,
+            props: true
         },
         {
             path: '/addtravel',
             name: 'addtravel',
             component: AddTravel
+        },
+        {
+            path: '/detail/:travelId',
+            name: 'detail',
+            component: Detail,
+            props: true
         }
+
     ]
 })

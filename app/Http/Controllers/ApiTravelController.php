@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Travel;
 use Illuminate\Http\Request;
 
-class TravelController extends Controller
+class ApiTravelController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,17 +14,8 @@ class TravelController extends Controller
      */
     public function index()
     {
-        return view('search');
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $travel = Travel::orderBy('id', 'asc')->get();
+        return response()->json($travel);
     }
 
     /**
@@ -42,46 +33,35 @@ class TravelController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Travel  $travel
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show(Travel $travel)
     {
-        $travel = Travel::orderBy('id', 'asc')->get();
-        return response()->json($travel);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Travel  $travel
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Travel $travel)
-    {
-        //
+        return $travel;
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Travel  $travel
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Travel $travel)
     {
-        //
+        $travel->available_seats = $request->get('available_seats');
+        $travel->save();
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Travel  $travel
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Travel $travel)
+    public function destroy($id)
     {
-        $travels->delete();
+        Travel::destroy($id);
     }
 }

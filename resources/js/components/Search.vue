@@ -1,8 +1,11 @@
 <template>
     <div class="search">
         <navbar></navbar>
-        Search
-        <div v-for="travel in travels" :key="travel.id" class="search-results">
+
+        <div class="input-container">
+            <input type="text" placeholder="Rechercher" v-model="travelSearchString" />
+        </div>
+        <div v-for="travel in filteredTravelFeed()" :key="travel.id" class="search-results">
             <div class="card">
                 <div class="card-content">
                     <p class="title">
@@ -11,6 +14,9 @@
                     <p class="subtitle">
                     {{travel.start_address}} - {{travel.finish_address}}
                     </p>
+                    <router-link :to="{ name: 'detail', params: { travelId : travel.id } }">
+                        See more
+                    </router-link>
                 </div>
                 <footer class="card-footer">
                     <p class="card-footer-item">
@@ -35,6 +41,7 @@ export default {
     name: "search",
     data() {
         return {
+            travelSearchString: "",
             travels: []
         }
     },
@@ -47,14 +54,49 @@ export default {
             axios.get("/api/travel").then(response => {
                 this.travels = response.data;
             });
+        },
+        filteredTravelFeed: function () {
+
+            let travelsFiltered = this.travels;
+            let travelSearchString = this.travelSearchString;
+
+            if(!travelSearchString){
+                return travelsFiltered;
+            }
+
+            let searchString = travelSearchString.trim().toLowerCase();
+
+            travelsFiltered = travelsFiltered.filter(function(item){
+                if(item.start_city.toLowerCase().indexOf(searchString) !== -1 || item.finish_city.toLowerCase().indexOf(searchString) !== -1 ){
+                    return item;
+                }
+            })
+
+            return travelsFiltered;
         }
     }
-    
+
 }
 </script>
 
 <style lang="scss">
 .search {
+    .input-container {
+        margin: 1.5rem auto;
+        border-radius: 5px;
+        background: DodgerBlue ;
+        padding: 10px;
+        width: 50%;
+    }
+
+    .input-container input {
+        border: none;
+        background: transparent;
+        color: white;
+        padding: 6px 15px;
+        font-size: 18px;
+    }
+
     .search-results {
         display: flex;
         flex-direction: column;

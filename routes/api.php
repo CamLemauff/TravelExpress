@@ -43,5 +43,5 @@ Route::group(['middleware' => 'jwt.refresh'], function(){
 //     Route::get('auth/refresh', 'ClientController@refresh');
 // });
 
-Route::post('travel', 'TravelController@store');
-Route::get('travel', 'TravelController@show');
+Route::apiResource('travel', 'ApiTravelController');
+
