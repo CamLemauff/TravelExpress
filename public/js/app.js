@@ -3683,9 +3683,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "navbar"
 });
@@ -68419,19 +68416,6 @@ var render = function() {
               ],
               1
             )
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "navbar-item" },
-          [
-            _c("v-icon", {
-              staticClass: "navbar-icon",
-              attrs: { name: "shopping-cart" }
-            }),
-            _vm._v(" Panier\n            ")
           ],
           1
         ),
